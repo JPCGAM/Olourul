@@ -1,0 +1,1255 @@
+focus_tree = {
+	id = olourul_focus
+
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = OLO
+		}
+	}
+	
+	focus = {
+		id = OLO_equines
+		icon = GFX_goal_olourul_workers
+		text = equine_workers
+		x = 1
+		y = 0
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			OLO = {
+			add_manpower = 100000
+			}
+			set_province_name = {
+				id = 357
+				name = "Horseland"
+			}
+			country_event = { days = 1 id = oloelec.2 }
+		}
+	}
+	
+	focus = {
+		id = OLO_economy
+		icon = GFX_goal_olourul_economy
+		text = equine_economy
+		prerequisite = { focus = OLO_equines }
+		mutually_exclusive = { focus = OLO_step }
+		x = -1
+		y = 1
+		relative_position_id = OLO_equines
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		available = {
+			NOT = {
+				has_country_leader = {ruling_only = yes name = "Starlight Glimmer"}
+			}
+			has_completed_focus = OLO_election
+		}
+
+		completion_reward = {
+			OLO = {
+			add_state_core = 365
+			add_state_core = 368
+			add_state_core = 358
+			add_state_core = 359
+			add_state_core = 360
+			add_offsite_building = { type = arms_factory level = 10}
+			}
+		}
+	}
+	
+	focus = {
+		id = OLO_step
+		icon = GFX_goal_olourul_next_step
+		text = equine_step
+		prerequisite = { focus = OLO_equines }
+		mutually_exclusive = { focus = OLO_economy }
+		x = 2
+		y = 1
+		relative_position_id = OLO_equines
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available = {
+			NOT = {
+				has_country_leader = {ruling_only = yes name = "Good Commie Horse"}
+			}
+			has_completed_focus = OLO_election
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			OLO = {
+			transfer_state = 358
+			transfer_state = 359
+			transfer_state = 360
+			add_state_core = 358
+			add_state_core = 359
+			add_state_core = 360
+			add_extra_state_shared_building_slots = 60
+			}
+		}
+	}
+	focus = {
+		id = OLO_passive_defence
+		icon = GFX_goal_olourul_defence
+		text = equine_defence
+		prerequisite = { focus = OLO_economy }
+		mutually_exclusive = { focus = OLO_active_defence }
+		x = -1
+		y = 1
+		relative_position_id = OLO_economy
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			357 = {
+			add_building_construction = {
+				type = bunker
+				province = 9847
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9850
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 908
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 718
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9675
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 4445
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 7629
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 10481
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6719
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 12202
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 12221
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 10247
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 4287
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 1282
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 1619
+				level = 3
+				instant_build = yes
+			}
+		}
+		}
+	}
+	focus = {
+		id = OLO_power
+		icon = GFX_goal_olourul_power
+		text = equine_power
+		prerequisite = { focus = OLO_step }
+		x = 0
+		y = 1
+		relative_position_id = OLO_step
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			OLO = {
+			add_stability = 0.5
+			set_major = yes
+			add_extra_state_shared_building_slots = 10
+			}
+		}
+	}
+	focus = {
+		id = OLO_election
+		icon = GFX_goal_olourul_election
+		text = equine_election
+		x = 6
+		y = 0
+		relative_position_id = OLO_equines
+		cost = 1
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			country_event = { days = 1 id = oloelec.1 }
+		}
+	}
+	focus = {
+		id = OLO_twilight
+		icon = GFX_goal_olourul_twilight
+		text = equine_twilight
+		prerequisite = { focus = OLO_election }
+		mutually_exclusive = { focus = OLO_good_horse }
+		mutually_exclusive = { focus = OLO_starlight }
+		x = 0
+		y = 1
+		relative_position_id = OLO_election
+		
+		available = {
+			OR = {
+				has_country_leader = {ruling_only = yes name = "Twilight Sparkle"}
+				}
+			}
+		
+		bypass = {
+
+		}
+		
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_research_slot = 3
+		}
+	}
+	focus = {
+		id = OLO_good_horse
+		icon = GFX_goal_olourul_commie_horse
+		text = equine_good_horse
+		prerequisite = { focus = OLO_election }
+		mutually_exclusive = { focus = OLO_twilight }
+		mutually_exclusive = { focus = OLO_starlight }
+		x = -2
+		y = 1
+		relative_position_id = OLO_election
+		
+		available = {
+			OR = {
+				has_country_leader = {ruling_only = yes name = "Good Commie Horse"}
+				}
+			}
+		
+		bypass = {
+
+		}
+		
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 500
+		}
+	}
+	focus = {
+		id = OLO_starlight
+		icon = GFX_goal_olourul_starlight
+		text = equine_starlight
+		prerequisite = { focus = OLO_election }
+		mutually_exclusive = { focus = OLO_twilight }
+		mutually_exclusive = { focus = OLO_good_horse }
+		x = 2
+		y = 1
+		relative_position_id = OLO_election
+		
+		available = {
+			OR = {
+				has_country_leader = {ruling_only = yes name = "Starlight Glimmer"}
+				}
+			}
+		
+		bypass = {
+
+		}
+		
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 900
+		}
+	}
+	focus = {
+		id = OLO_status_quoe
+		icon = GFX_goal_olourul_commie_horse
+		text = equine_status_quoe
+		prerequisite = { focus = OLO_good_horse }
+		x = 0
+		y = 1
+		relative_position_id = OLO_good_horse
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			load_oob = OLO_horse
+		}
+	}
+	focus = {
+		id = OLO_extra_research
+		icon = GFX_goal_olourul_twilight
+		text = equine_extra_research
+		prerequisite = { focus = OLO_twilight }
+		x = 0
+		y = 1
+		relative_position_id = OLO_twilight
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_research_slot = 4
+			add_tech_bonus = { 
+				bonus = 5
+				ahead_reduction = 5
+				uses = 300 
+				category = light_air
+				category = medium_air
+				category = heavy_air
+				category = armor
+				category = cat_light_armor
+				category = cat_medium_armor
+				category = cat_heavy_armor
+				category =	artillery
+				category =	cat_anti_tank
+				category =	naval_air
+				category =	infantry_weapons
+				category =	motorized_equipment
+				category =	cat_mechanized_equipment
+				category =	naval_equipment
+				category =	rocketry
+				category =	nuclear
+				category =	industry
+				category =	electronics
+				category =	land_doctrine
+				category =	air_doctrine
+				category =	naval_doctrine
+				category =	strategic_destruction_tree
+				category =	battlefield_support_tree
+				category =	operational_integrity_tree
+				category =	jet_technology
+				category =	trade_interdiction_tree
+				category =	convoy_defense_tree
+				category =	light_fighter
+				category =	cat_heavy_fighter
+				category =	tactical_bomber
+				category =	cat_strategic_bomber
+				category =	naval_bomber
+				category =	cas_bomber
+				category =	dd_tech
+				category =	cl_tech
+				category =	ca_tech
+				category =	cv_tech
+				category =	bc_tech
+				category =	bb_tech
+				category =	shbb_tech
+				category =	ss_tech
+				category =	tp_tech
+				category =	synth_resources
+				category =	fleet_in_being_tree
+				category =	encryption_tech
+				category =	decryption_tech
+				category =	computing_tech
+				category =	radar_tech
+				category =	infantry_tech
+				category =	marine_tech
+				category =	construction_tech
+				category =	excavation_tech
+				category =	submarine_doctrine
+				category =	air_equipment
+				category =	cat_mobile_warfare
+				category =	cat_superior_firepower
+				category =	cat_grand_battle_plan
+				category =	cat_mass_assault
+				category =	cat_base_strike
+				category =	cat_trade_interdiction
+				category =	cat_fleet_in_being
+				category =	cat_strategic_destruction
+				category =	cat_battlefield_support
+				category =	cat_operational_integrity
+				category =	night_vision
+				category =	base_strike_main
+				category =	mot_rockets
+				category =	support_tech
+				category =	para_tech
+				category =	engineers_tech
+				category =	recon_tech
+				category =	mountaineers_tech
+				category =	military_police_tech
+				category =	hospital_tech
+				category =	logistics_tech
+				category =	signal_company_tech
+				category =	maintenance_company_tech
+				category =	naval_mines
+				category =	concentrated_industry_category
+				category =	dispersed_industry_category
+				category =	asw_tech
+				category =	naval_minesweeping
+				category =	naval_minelaying
+				category =	cat_scout_plane
+				}
+		}
+	}
+	focus = {
+		id = OLO_new_army
+		icon = GFX_goal_olourul_starlight
+		text = equine_new_army
+		prerequisite = { focus = OLO_starlight }
+		x = 0
+		y = 1
+		relative_position_id = OLO_starlight
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			load_oob = OLO_starlight_army
+		}
+	}
+	focus = {
+		id = OLO_defence_two
+		icon = GFX_goal_olourul_defence
+		text = equine_defence_two
+		prerequisite = { focus = OLO_passive_defence }
+		x = 0
+		y = 1
+		relative_position_id = OLO_passive_defence
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			357 = {
+			add_building_construction = {
+				type = anti_air_building
+				level = 5
+				instant_build = yes
+				}	
+			}	
+		}
+	}
+	focus = {
+		id = OLO_active_defence
+		icon = GFX_goal_olourul_defence
+		text = equine_active_defence
+		prerequisite = { focus = OLO_economy }
+		mutually_exclusive = { focus = OLO_passive_defence }
+		x = 1
+		y = 1
+		relative_position_id = OLO_economy
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			load_oob = OLO_liberation_army
+		}
+	}
+	focus = {
+		id = OLO_airforce
+		icon = GFX_goal_olourul_airforce
+		text = equine_airforce
+		prerequisite = { focus = OLO_active_defence }
+		x = 0
+		y = 1
+		relative_position_id = OLO_active_defence
+		cost = 7
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_equipment_to_stockpile = { 
+				type = fighter_equipment_1 
+				amount = 5000
+			}
+			add_equipment_to_stockpile = { 
+				type = CAS_equipment_1
+				amount = 5000
+			}
+		}
+	}
+	focus = {
+		id = OLO_bunker
+		icon = GFX_goal_olourul_defence
+		text = equine_bunker
+		prerequisite = { focus = OLO_passive_defence }
+		x = 0
+		y = 1
+		relative_position_id = OLO_passive_defence
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			357 = {
+				add_building_construction = {
+					type = coastal_bunker
+					province = 9847
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = 6909
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = 9832
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = 11830
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = 905
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = 3906
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = 6732
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = 3712
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = 3732
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = 7462
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = 12459
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = 1338
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					province = 1619
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = OLO_war_USA
+		icon = GFX_goal_olourul_war_usa
+		text = equine_war_USA
+		prerequisite = { focus = OLO_airforce }
+		x = 0
+		y = 1
+		relative_position_id = OLO_airforce
+		cost = 4
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			create_wargoal = { type = annex_everything target = USA }
+		}
+	}
+	focus = {
+		id = OLO_horses_usa
+		icon = GFX_goal_olourul_horses_usa
+		text = equine_horses_usa
+		prerequisite = { focus = OLO_war_USA }
+		available = {
+			has_war = yes
+		}
+		x = 0
+		y = 1
+		relative_position_id = OLO_war_USA
+		cost = 14
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			load_oob = OLO_horses_usa
+		}
+	}
+	focus = {
+		id = OLO_usa_win
+		icon = GFX_goal_olourul_usa_win
+		text = equine_usa_win
+		prerequisite = { focus = OLO_horses_usa }
+		x = 0
+		y = 1
+		relative_position_id = OLO_horses_usa
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_war = no
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			OLO = {
+				add_state_core = 261
+				add_state_core = 361
+				add_state_core = 362
+				add_state_core = 363
+				add_state_core = 364
+				add_state_core = 366
+				add_state_core = 369
+				add_state_core = 370
+				add_state_core = 371
+				add_state_core = 372
+				add_state_core = 373
+				add_state_core = 374
+				add_state_core = 375
+				add_state_core = 376
+				add_state_core = 377
+				add_state_core = 378
+				add_state_core = 379
+				add_state_core = 380
+				add_state_core = 381
+				add_state_core = 382
+				add_state_core = 383
+				add_state_core = 384
+				add_state_core = 385
+				add_state_core = 386
+				add_state_core = 387
+				add_state_core = 388
+				add_state_core = 389
+				add_state_core = 390
+				add_state_core = 391
+				add_state_core = 392
+				add_state_core = 393
+				add_state_core = 394
+				add_state_core = 395
+				add_state_core = 396
+				add_state_core = 463
+				add_state_core = 629
+				add_state_core = 630
+				add_state_core = 631
+				add_state_core = 632
+				add_state_core = 638
+				add_state_core = 642
+				add_state_core = 650
+				add_state_core = 685
+				add_state_core = 686
+				add_state_core = 727
+			}
+			add_manpower = -20000
+		}
+	}
+	focus = {
+		id = OLO_navy
+		icon = GFX_goal_olourul_ship
+		text = equine_navy
+		x = 6
+		y = 0
+		relative_position_id = OLO_election
+		cost = 3
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			if = {
+				limit = { not = { has_dlc = "Man the Guns" } }
+				set_technology = {
+					early_submarine = 1
+					basic_submarine = 1
+					early_destroyer = 1
+					early_light_cruiser = 1
+					early_heavy_cruiser = 1
+					early_battleship = 1
+					early_battlecruiser = 1
+					transport = 1
+					improved_submarine =1
+				}
+			}
+			if = {
+				limit = { has_dlc = "Man the Guns" }
+				set_technology = {
+					basic_naval_mines = 1
+					submarine_mine_laying = 1
+					early_ship_hull_light = 1
+					basic_ship_hull_light = 1
+					early_ship_hull_submarine = 1
+					basic_ship_hull_submarine = 1
+					improved_submarine =1
+					early_ship_hull_cruiser = 1
+					early_ship_hull_heavy = 1
+					basic_battery = 1
+					basic_light_battery = 1
+					basic_torpedo = 1
+					basic_depth_charges = 1
+					basic_secondary_battery = 1
+					mtg_transport = 1
+				}
+			}
+			navy_experience = 50
+		}
+	}
+	focus = {
+		id = OLO_improve_naval_base
+		icon = GFX_goal_dockyard_all
+		text = equine_naval
+		prerequisite = { focus = OLO_navy }
+		mutually_exclusive = { focus = OLO_improve_naval_base_passive}
+		available = {
+			NOT = { has_completed_focus= OLO_passive_defence}
+			OR = {
+			has_completed_focus= OLO_step
+			has_completed_focus= OLO_active_defence
+			}
+		}
+		x = 1
+		y = 1
+		relative_position_id = OLO_navy
+		cost = 4
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			359 = {
+				add_building_construction = {
+					type = dockyard
+					level = 5
+					instant_build = yes
+				}
+			}
+			358 = {
+				add_building_construction = {
+					type = dockyard
+					level = 5
+					instant_build = yes
+				}
+			}
+			360 = {
+				add_building_construction = {
+					type = dockyard
+					level = 5
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = OLO_improve_naval_base_passive
+		icon = GFX_goal_dockyard_one
+		text = equine_naval_two
+		prerequisite = { focus = OLO_navy }
+		mutually_exclusive = { focus = OLO_improve_naval_base}
+		available = {
+			has_completed_focus= OLO_passive_defence
+			
+		}
+		x = -1
+		y = 1
+		relative_position_id = OLO_navy
+		cost = 4
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			357 = {
+				add_building_construction = {
+					type = dockyard
+					level = 15
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = OLO_war_draft
+		icon = GFX_focus_generic_military_academy
+		text = equine_war_draft
+		available = {
+			has_war = yes
+		}
+		prerequisite = { focus = OLO_war_USA }
+		x = 2
+		y = 1
+		relative_position_id = OLO_war_USA
+		cost = 4
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_manpower = 20000
+		}
+	}
+	focus = {
+		id = OLO_europe_core
+		icon = GFX_focus_usa_focus_on_europe
+		text = equine_europe_core
+		available = {}
+		prerequisite = { focus =  OLO_improve_naval_base focus = OLO_improve_naval_base_passive }
+		x = 1
+		y = 1
+		relative_position_id = OLO_improve_naval_base_passive
+		cost = 4
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_state_core = 134
+			add_state_core = 135
+			add_state_core = 113
+		}
+	}
+	focus = {
+		id = OLO_europe_strike
+		icon = GFX_focus_prc_infiltration
+		text = equine_europe_strike
+		available = {}
+		prerequisite = { focus =  OLO_europe_core }
+		mutually_exclusive = {focus= OLO_europe_strike_pasive}
+		x = 1
+		y = 1
+		relative_position_id = OLO_europe_core
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_state_core= 698
+			transfer_state = 698
+			create_wargoal = { type = annex_everything target = IRE}
+		}
+	}
+	focus = {
+		id = OLO_europe_strike_pasive
+		icon = GFX_goal_generic_forceful_treaty
+		text = equine_europe_strike
+		available = {}
+		prerequisite = { focus =  OLO_europe_core }
+		mutually_exclusive = {focus= OLO_europe_strike}
+		x = -1
+		y = 1
+		relative_position_id = OLO_europe_core
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			transfer_state = 134
+			transfer_state =135
+			transfer_state =113
+		}
+	}
+	focus = {
+		id = OLO_europe_bunker
+		icon = GFX_goal_generic_defence
+		text = equine_europe_bunker
+		available = {}
+		prerequisite = { focus =  OLO_bunker }
+		x = 0
+		y = 1
+		relative_position_id = OLO_bunker
+		cost = 3
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			113 = {
+				add_building_construction = {
+					type = coastal_bunker
+					province = 11293
+					level = 3
+					instant_build = yes
+				}
+			}
+			135 = {
+				add_building_construction = {
+					type = coastal_bunker
+					province = 7394
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = OLO_open
+		icon = GFX_goal_generic_alliance
+		text = equine_open
+		available = {}
+		###prerequisite = { focus = }
+		x = 10
+		y = 0
+		relative_position_id = OLO_navy
+		cost = 4
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_completed_focus = OLO_election
+		}
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 300
+		}
+	}
+	focus = {
+		id = OLO_own_path
+		icon = GFX_focus_eng_global_defense
+		text = equine_own_path
+		mutually_exclusive = { focus = OLO_country_friends}
+		available = {}
+		prerequisite = { focus = OLO_open }
+		x = -3
+		y = 1
+		relative_position_id = OLO_open
+		cost = 3
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 300
+		}
+	}
+	focus = {
+		id = OLO_country_friends
+		icon = GFX_goal_tripartite_pact
+		text = equine_country_friends
+		mutually_exclusive = { focus = OLO_own_path}
+		available = {}
+		prerequisite = { focus = OLO_open }
+		x = 3
+		y = 1
+		relative_position_id = OLO_open
+		cost = 3
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+
+		completion_reward = {
+			set_rule = {
+				can_join_factions = yes
+			}
+		}
+	}
+	focus = {
+		id = OLO_own_gov
+		icon = GFX_goal_olourul_commie_horse
+		text = equine_own_gov
+		mutually_exclusive = { focus = OLO_twilight_gov}
+		available = {}
+		prerequisite = { focus = OLO_own_path }
+		x = -2
+		y = 1
+		relative_position_id = OLO_own_path
+		cost = 3
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = OLO_twilight_gov
+		icon = GFX_goal_olourul_twilight
+		text = equine_twilight_gov
+		mutually_exclusive = { focus = OLO_own_gov}
+		available = {
+			OR = {
+				has_country_leader = {ruling_only = yes name = "Twilight Sparkle"}
+			}
+		}
+		prerequisite = { focus = OLO_own_path }
+		x = 1
+		y = 1
+		relative_position_id = OLO_own_path
+		cost = 3
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = OLO_good_guys
+		icon = GFX_goal_generic_military_sphere
+		text = equine_good_guys
+		mutually_exclusive = { focus = OLO_unthinkable}
+		available = {}
+		prerequisite = { focus = OLO_country_friends }
+		x = -2
+		y = 1
+		relative_position_id = OLO_country_friends
+		cost = 3
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+
+		completion_reward = {
+			#nothing right now
+		}
+	}
+	focus = {
+		id = OLO_unthinkable
+		icon = GFX_goal_generic_more_territorial_claims
+		text = equine_unthinkable
+		mutually_exclusive = { focus = OLO_good_guys}
+		available = {
+			OR = {
+				has_country_leader = {ruling_only = yes name = "Starlight Glimmer"}
+			}
+		}
+		prerequisite = { focus = OLO_country_friends }
+		x = 2
+		y = 1
+		relative_position_id = OLO_country_friends
+		cost = 3
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+
+		completion_reward = {
+			retire_country_leader = yes
+			create_country_leader = {
+				name = "Starlight Glimmer"
+				desc = "POLITICS_STARLIGHT_DESC"
+				picture = "Starlight_fascism.dds"
+				expire = "1965.1.1"
+				ideology = fascism_ideology
+				traits = {
+					staunch_stalinist
+					first_lady
+				}
+			}
+			set_politics = {
+				ruling_party = fascism
+				last_election = "1933.3.5"
+				election_frequency = 48
+				elections_allowed = no
+			}
+			set_popularities = {
+				fascism = 100
+			}
+		}
+	}
+	focus = {
+		id = OLO_generals
+		icon = GFX_goal_general
+		text = equine_generals
+		available = {}
+		##prerequisite = { focus =  }
+		x = 3
+		y = 0
+		relative_position_id = OLO_navy
+		cost = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+
+		completion_reward = {
+			create_corps_commander = {
+				name = "Snek"
+				portrait_path = "gfx/leaders/OLO/snek.dds"
+				traits = { }
+				skill = 5
+				attack_skill = 2
+				defense_skill = 4
+				planning_skill = 2
+				logistics_skill = 6
+			}
+			create_corps_commander = {
+				name = "Snek but is British"
+				portrait_path = "gfx/leaders/OLO/british_snek.dds"
+				traits = { }
+				skill = 5
+				attack_skill = 3
+				defense_skill = 4
+				planning_skill = 3
+				logistics_skill = 4
+			}
+			create_corps_commander = {
+				name = "Stonks"
+				portrait_path = "gfx/leaders/OLO/stonks.dds"
+				traits = { }
+				skill = 6
+				attack_skill = 5
+				defense_skill = 4
+				planning_skill = 2
+				logistics_skill = 5
+			}
+		}
+	}
+}

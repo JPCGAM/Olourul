@@ -1,0 +1,99 @@
+division_template = {
+	name = "New Army"			# Cavalry Division
+
+	division_names_group = SOV_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+	}
+	support = {		
+		artillery = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+}
+
+units = {
+	division = {
+		#name = "4th Horse Division"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 715
+		division_template = "New Army"
+		start_experience_factor = 0.5
+		start_equipment_factor = 1
+	}
+	division = {
+		#name = "5th Horse Division"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 718
+		division_template = "New Army"
+		start_experience_factor = 0.5
+		start_equipment_factor = 1
+	}
+	division = {
+		#name = "6th Horse Division"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 733
+		division_template = "New Army"
+		start_experience_factor = 0.5
+		start_equipment_factor = 1
+	}
+	division = {
+		#name = "7th Horse Division"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 733
+		division_template = "New Army"
+		start_experience_factor = 0.5
+		start_equipment_factor = 1
+	}
+	division = {
+		#name = "8th Horse Division"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 733
+		division_template = "New Army"
+		start_experience_factor = 0.5
+		start_equipment_factor = 1
+	}
+	division = {
+		#name = "9th Horse Division"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 733
+		division_template = "New Army"
+		start_experience_factor = 0.5
+		start_equipment_factor = 1
+	}
+	division = {
+		#name = "10th Horse Division"
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 733
+		division_template = "New Army"
+		start_experience_factor = 0.5
+		start_equipment_factor = 1
+	}
+}

@@ -1,0 +1,76 @@
+add_namespace = oloelec
+
+country_event = {
+	id = oloelec.1
+	title = oloelec.1.t
+	desc = oloelec.1.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = OLO
+		AND = {
+			date>1936.1.1
+		}
+	}
+		
+	option = {
+		name = oloelec.1.a
+		ai_chance = { factor = 33}
+	}
+	option = {
+		name = oloelec.1.b
+		ai_chance = { factor = 33}
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Twilight Sparkle"
+			desc = "POLITICS_TWILIGHT_DESC"
+			picture = "Twilight.dds"
+			expire = "1965.1.1"
+			ideology = stalinism
+			traits = {
+				popular_queen
+				queen_of_the_people
+			}
+		}
+	}
+	option = {
+		name = oloelec.1.c
+		ai_chance = { factor = 33}
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Starlight Glimmer"
+			desc = "POLITICS_STARLIGHT_DESC"
+			picture = "Starlight.dds"
+			expire = "1965.1.1"
+			ideology = stalinism
+			traits = {
+				staunch_stalinist
+				first_lady
+			}
+		}
+	}
+}
+country_event = {
+	id = oloelec.2
+	title = oloelec.2.t
+	desc = oloelec.2.d
+	picture = GFX_event_luna
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = OLO
+		AND = {
+			date>1936.1.1
+		}
+	}
+		
+	option = {
+		name = oloelec.2.a
+		ai_chance = { factor = 100}
+	}
+}
