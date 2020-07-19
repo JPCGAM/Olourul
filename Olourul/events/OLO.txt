@@ -74,3 +74,24 @@ country_event = {
 		ai_chance = { factor = 100}
 	}
 }
+country_event = {
+	id = oloelec.3
+	title = oloelec.3.t
+	desc = oloelec.3.d
+	\picture = GFX_event_luna
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = OLO
+		AND = {
+			date>1936.1.1
+		}
+	}
+		
+	option = {
+		name = oloelec.3.a
+		ai_chance = { factor = 100}
+	}
+}

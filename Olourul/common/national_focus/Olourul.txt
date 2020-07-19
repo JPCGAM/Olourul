@@ -1220,6 +1220,7 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
+		country_event = { days = 1 id = oloelec.3 }
 			create_corps_commander = {
 				name = "Snek"
 				portrait_path = "gfx/leaders/OLO/snek.dds"
